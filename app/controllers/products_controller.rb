@@ -1,9 +1,9 @@
-class ProductsController < OpenReadController
+class ProductsController < ProtectedController
   before_action :set_product, only: [:show, :update, :destroy]
 
   # GET /products
   def index
-    @products = Product.all
+    @products = current_user.products.all
 
     render json: @products
   end
@@ -15,7 +15,7 @@ class ProductsController < OpenReadController
 
   # POST /products
   def create
-    @product = Product.new(product_params)
+    @product = current_user.products.build(product_params)
 
     if @product.save
       render json: @product, status: :created, location: @product
@@ -41,7 +41,7 @@ class ProductsController < OpenReadController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_product
-      @product = Product.find(params[:id])
+      @product = current_user.products.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
