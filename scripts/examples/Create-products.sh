@@ -12,7 +12,8 @@ curl "http://localhost:4741/products" \
       "name": "'"Rocks"'",
       "brand": "'"Supreme"'",
       "size": "'"M"'",
-      "sell_price": "'"120"'"
+      "sell_price": "'"120"'",
+      "picture_url": "'"https://assets.supremenewyork.com/151789/ma/EyU6o4qZsDk.jpg"'"
     }
   }'
 
